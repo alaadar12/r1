@@ -1,0 +1,46 @@
+[دائره متحركه.txt](https://github.com/user-attachments/files/24112709/default.txt)
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading;
+
+namespace WindowsFormsApplication12
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            this.Paint += new PaintEventHandler(Form1_Paint);
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color.White);
+            Pen pen2 = new Pen(Color.Black);
+
+            int i = 0;
+
+            while (i <= 200)
+            {
+                // دائرة ثابتة
+                e.Graphics.DrawEllipse(pen, 1, 100, 30, 30);
+
+                Thread.Sleep(500); // توقف نصف ثانية
+
+                if (i == 200)
+                    break;
+
+                // دائرة متحركة
+                e.Graphics.DrawEllipse(pen2, i, 100, 30, 30);
+
+                i++;
+            }
+        }
+    }
+}

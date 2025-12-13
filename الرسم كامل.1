@@ -1,58 +1,40 @@
-
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Threading;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
-namespace ComputerGraphicsDemo
+namespace WindowsFormsApplication27
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-            // تعيين خلفية النموذج إلى اللون الأبيض
-            this.BackColor = Color.White;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            // إنشاء قلم أسود
+
             Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0));
 
-            // رسم خط مستقيم
             e.Graphics.DrawLine(pen, 20, 10, 300, 100);
-
-            // رسم مستطيل
             e.Graphics.DrawRectangle(pen, 10, 10, 30, 50);
-
-            // رسم شكل بيضاوي (دائرة)
-            e.Graphics.DrawEllipse(pen, 50, 50, 60, 60);
-
-            // تعريف نص
             String drawString = "welcome to our class";
 
-            // تعريف خط
             Font drawFont = new Font("Arial", 16, FontStyle.Bold);
-
-            // تعريف فرشاة صفراء
             SolidBrush drawBrush = new SolidBrush(Color.Yellow);
-
-            // تحديد موقع النص
             float x = 150.0F;
             float y = 50.0F;
-
-            // تعريف تنسيق النص العمودي
             StringFormat drawFormat = new StringFormat();
             drawFormat.FormatFlags = StringFormatFlags.DirectionVertical;
-
-            // رسم النص
             e.Graphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
-
-            // رسم دائرة متحركة أفقياً
             Pen pen2 = new Pen(Color.White);
             int i = 0;
-
             while (i <= 200)
             {
                 e.Graphics.DrawEllipse(pen, i, 100, 30, 30);

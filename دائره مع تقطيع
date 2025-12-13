@@ -1,0 +1,39 @@
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Threading;
+
+namespace WindowsFormsApplication27
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+
+            Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0));
+
+        
+            Pen pen2 = new Pen(Color.White);
+            int i = 0;
+            while (i <= 200)
+            {
+                e.Graphics.DrawEllipse(pen, i, 100, 30, 30);
+                Thread.Sleep(50);
+                if (i == 200) { break; }
+                e.Graphics.DrawEllipse(pen2, i, 100, 30, 30);
+                i++;
+            }
+        }
+    }
+}
